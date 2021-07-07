@@ -35,8 +35,8 @@ local function GetRandomTrack(previousTrack)
 		end
 	end
 
-	local randomTrack = math.ceil(math.random()*trackCount)
-	if randomTrack == previousTrackIndex then
+	local randomTrack = math.random(1, trackCount)
+	if randomTrack == previousTrackIndex and previousTrackIndex ~= trackCount then
 		randomTrack = trackCount + 1
 	end
 	return randomTrackList[randomTrack]
@@ -154,12 +154,12 @@ function widget:Initialize()
 		return
 	end
 
+	math.randomseed(os.clock() * 100)
+	
 	openTrack = WG.Chobby.Configuration.gameConfig.openTrack
 	if openTrack == nil then
-		openTrack = randomTrackList[math.random(#randomTrackList)]
+		openTrack = randomTrackList[math.random(1, #randomTrackList)]
 	end
-
-	math.randomseed(os.clock() * 100)
 
 	local Configuration = WG.Chobby.Configuration
 
