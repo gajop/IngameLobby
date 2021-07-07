@@ -97,7 +97,7 @@ function widget:Initialize()
 	end
 	local taskbarIcon = Chobby.Configuration.gameConfig.taskbarIcon
 	if taskbarIcon then
-		Spring.SetWMIcon(taskbarIcon)
+		Spring.SetWMIcon(taskbarIcon, true)
 	end
 
 	local function OnBattleAboutToStart()
@@ -115,7 +115,7 @@ function widget:Initialize()
 			end
 			local taskbarIcon = Chobby.Configuration.gameConfig.taskbarIcon
 			if taskbarIcon then
-				Spring.SetWMIcon(taskbarIcon)
+				Spring.SetWMIcon(taskbarIcon, true)
 			end
 		end
 		if key == "language" then
